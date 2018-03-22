@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.TPsfpOrderDao">
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.TPsfpOrder">
+    <id column="ORD_BILLNO" jdbcType="VARCHAR" property="ordBillno" />
+    <result column="ORD_PRDCODE" jdbcType="VARCHAR" property="ordPrdcode" />
+    <result column="ORD_CRCODE" jdbcType="VARCHAR" property="ordCrcode" />
+    <result column="ORD_MERBILLNO" jdbcType="VARCHAR" property="ordMerbillno" />
+    <result column="ORD_PRETIME" jdbcType="TIMESTAMP" property="ordPretime" />
+    <result column="ORD_DOTIME" jdbcType="TIMESTAMP" property="ordDotime" />
+    <result column="ORD_MERTIME" jdbcType="DATE" property="ordMertime" />
+    <result column="ORD_MERCODEFROM" jdbcType="VARCHAR" property="ordMercodefrom" />
+    <result column="ORD_TYPEFROM" jdbcType="DECIMAL" property="ordTypefrom" />
+    <result column="ORD_MERCODETO" jdbcType="VARCHAR" property="ordMercodeto" />
+    <result column="ORD_TYPETO" jdbcType="DECIMAL" property="ordTypeto" />
+    <result column="ORD_ACCCODEFROM" jdbcType="VARCHAR" property="ordAcccodefrom" />
+    <result column="ORD_ACCCODETO" jdbcType="VARCHAR" property="ordAcccodeto" />
+    <result column="ORD_AMT" jdbcType="DECIMAL" property="ordAmt" />
+    <result column="ORD_STATUS" jdbcType="DECIMAL" property="ordStatus" />
+    <result column="ORD_ATTACH" jdbcType="VARCHAR" property="ordAttach" />
+    <result column="ORD_UPDATETIME" jdbcType="TIMESTAMP" property="ordUpdatetime" />
+    <result column="ORD_PRODUCT" jdbcType="VARCHAR" property="ordProduct" />
+    <result column="ORD_REFUNDED" jdbcType="DECIMAL" property="ordRefunded" />
+    <result column="ORD_REFUSE" jdbcType="DECIMAL" property="ordRefuse" />
+    <result column="ORD_PREIP" jdbcType="VARCHAR" property="ordPreip" />
+    <result column="ORD_ENDIP" jdbcType="VARCHAR" property="ordEndip" />
+    <result column="ORD_BILLEXPTIME" jdbcType="TIMESTAMP" property="ordBillexptime" />
+    <result column="ORD_DIRECTLY" jdbcType="DECIMAL" property="ordDirectly" />
+    <result column="ORD_SYSCODE" jdbcType="VARCHAR" property="ordSyscode" />
+    <result column="ORD_BRCCODE" jdbcType="VARCHAR" property="ordBrccode" />
+    <result column="ORD_SRCCODE" jdbcType="VARCHAR" property="ordSrccode" />
+    <result column="ORD_PAYEDAMT" jdbcType="DECIMAL" property="ordPayedamt" />
+    <result column="TRD_CODE" jdbcType="VARCHAR" property="trdCode" />
+    <result column="RESV1" jdbcType="VARCHAR" property="resv1" />
+    <result column="RESV2" jdbcType="VARCHAR" property="resv2" />
+    <result column="RESV3" jdbcType="VARCHAR" property="resv3" />
+    <result column="ORD_PRDCODE_OLD" jdbcType="VARCHAR" property="ordPrdcodeOld" />
+    <result column="TRD_CODE_OLD" jdbcType="VARCHAR" property="trdCodeOld" />
+    <result column="HAS_DEPEND_MER" property="hasDependMer" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    ORD_BILLNO, ORD_PRDCODE, ORD_CRCODE, ORD_MERBILLNO, ORD_PRETIME, ORD_DOTIME, ORD_MERTIME, 
+    ORD_MERCODEFROM, ORD_TYPEFROM, ORD_MERCODETO, ORD_TYPETO, ORD_ACCCODEFROM, ORD_ACCCODETO, 
+    ORD_AMT, ORD_STATUS, ORD_ATTACH, ORD_UPDATETIME, ORD_PRODUCT, ORD_REFUNDED, ORD_REFUSE, 
+    ORD_PREIP, ORD_ENDIP, ORD_BILLEXPTIME, ORD_DIRECTLY, ORD_SYSCODE, ORD_BRCCODE, ORD_SRCCODE, 
+    ORD_PAYEDAMT, TRD_CODE, RESV1, RESV2, RESV3, ORD_PRDCODE_OLD, TRD_CODE_OLD,HAS_DEPEND_MER
+  </sql>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_PSFP_ORDER
+    where ORD_BILLNO = #{ordBillno,jdbcType=VARCHAR}
+  </select>
+</mapper>
